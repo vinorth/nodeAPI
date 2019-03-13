@@ -3,7 +3,7 @@
     "info": {
         "version": "1.0.0",
         "title": "Simple API",
-        "description": "A simple API to learn how to write OpenAPI Specification"
+        "description": "A simple API to learn how to write"
     },
     "schemes": [
         "https"
@@ -11,10 +11,37 @@
     "host": "simple.api",
     "basePath": "/openapi101",
     "paths": {
-        "/persons": {
+        "/users": {
             "get": {
-                "summary": "Gets some persons",
-                "description": "Returns a list containing all persons.",
+                "summary": "Get all users",
+                "description": "Returns an array containing all users.",
+                "responses": {
+                    "200": {
+                        "description": "A list of Person",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "properties": {
+                                    "firstName": {
+                                        "type": "string"
+                                    },
+                                    "lastName": {
+                                        "type": "string"
+                                    },
+                                    "username": {
+                                        "type": "string"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/user/:id": {
+            "get": {
+                "summary": "Get a single user by Id",
+                "description": "Returns a Json object containing user data.",
                 "responses": {
                     "200": {
                         "description": "A list of Person",
