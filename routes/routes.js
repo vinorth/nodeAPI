@@ -1,4 +1,5 @@
 const ValuesCtrl = require('../controllers/values_controller');
+const UserCtrl = require('../controllers/users_controller');
 var path = require('path');
 
 module.exports = function (app) {
@@ -10,4 +11,8 @@ module.exports = function (app) {
      .post('/tests', ValuesCtrl.createValues)
      .put('/test', ValuesCtrl.updateValue)
      .delete('/test/:id', ValuesCtrl.deleteValue)
+     .post('/user', UserCtrl.createUser)
+     .put('/user', UserCtrl.updateUser)
+     .get('/users', UserCtrl.getAllUsers)
+     .get('/user/:id', UserCtrl.getByIdUser)
 };
