@@ -24,7 +24,7 @@ module.exports = {
     });
   },
     
-  getByIdUser(req, res, next) {
+  getUserById(req, res, next) {
     UserModel.findOne({ id: req.params.id }, (err, user) => {
       if (err) {
         next(err);
@@ -42,16 +42,6 @@ module.exports = {
         res.json(users);
       }
     });
-  },
-
-  // deleteUser(req, res, next) {
-  //   req.user.remove(function (err) {
-  //     if (err) {
-  //       next(err);
-  //     } else {
-  //       res.json(req.user);
-  //     }
-  //   });
-  // },
+  }
 
 }

@@ -1,5 +1,6 @@
 const ValuesCtrl = require('../controllers/values_controller');
 const UserCtrl = require('../controllers/users_controller');
+const PostCtrl = require('../controllers/posts_controller')
 
 module.exports = function (app) {
     app
@@ -13,5 +14,10 @@ module.exports = function (app) {
      .post('/user', UserCtrl.createUser)
      .put('/user', UserCtrl.updateUser)
      .get('/users', UserCtrl.getAllUsers)
-     .get('/user/:id', UserCtrl.getByIdUser)
+     .get('/user/:id', UserCtrl.getUserById)
+
+     .post('/post', PostCtrl.createPost)
+     .put('/post', PostCtrl.updatePost)
+     .get('/posts', PostCtrl.getAllPosts)
+     .get('/post/:id', PostCtrl.getPostById)
 };
