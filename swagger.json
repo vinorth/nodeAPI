@@ -5,11 +5,9 @@
         "title": "Simple API",
         "description": "A simple API to learn how to write"
     },
-    "schemes": [
-        "https"
-    ],
-    "host": "simple.api",
-    "basePath": "/openapi101",
+    "schemes": [],
+    "host": "localhost",
+    "basePath": "/",
     "paths": {
         "/users": {
             "get": {
@@ -17,22 +15,13 @@
                 "description": "Returns an array containing all users.",
                 "responses": {
                     "200": {
-                        "description": "A list of Person",
+                        "description": "A list of users",
                         "schema": {
-                            "type": "array",
-                            "items": {
-                                "properties": {
-                                    "firstName": {
-                                        "type": "string"
-                                    },
-                                    "lastName": {
-                                        "type": "string"
-                                    },
-                                    "username": {
-                                        "type": "string"
-                                    }
-                                }
-                            }
+                            "id": "string",
+                            "firstName": "string",
+                            "lastName": "string",
+                            "username": "string",
+                            "posts": "array"
                         }
                     }
                 }
@@ -46,20 +35,127 @@
                     "200": {
                         "description": "A list of Person",
                         "schema": {
-                            "type": "array",
-                            "items": {
-                                "properties": {
-                                    "firstName": {
-                                        "type": "string"
-                                    },
-                                    "lastName": {
-                                        "type": "string"
-                                    },
-                                    "username": {
-                                        "type": "string"
-                                    }
-                                }
-                            }
+                            "id": "string",
+                            "firstName": "string",
+                            "lastName": "string",
+                            "username": "string",
+                            "posts": "array"
+                        }
+                    }
+                }
+            }
+        },
+        "/user": {
+            "post": {
+                "summary": "Creates a user",
+                "description": "Returns a Json object containing user data.",
+                "responses": {
+                    "201": {
+                        "description": "A list of Person",
+                        "schema": {
+                            "id": "string",
+                            "firstName": "string",
+                            "lastName": "string",
+                            "username": "string",
+                            "posts": "array"
+                        }
+                    }
+                }
+            },
+            "put": {
+                "summary": "Update a single user",
+                "description": "Returns a Json object containing updated user data.",
+                "responses": {
+                    "200": {
+                        "description": "A list of Person",
+                        "schema": {
+                            "id": "string",
+                            "firstName": "string",
+                            "lastName": "string",
+                            "username": "string",
+                            "posts": "array"
+                        }
+                    }
+                }
+            }
+        },
+        "/posts": {
+            "get": {
+                "summary": "Get all posts",
+                "description": "Returns an array containing all posts.",
+                "responses": {
+                    "200": {
+                        "description": "A list of posts",
+                        "schema": {
+                            "id": "string",
+                            "userId": "string",
+                            "iconUrl": "string",
+                            "title": "string",
+                            "username": "string",
+                            "rating": "number",
+                            "distance": "number",
+                            "description": "string"
+                        }
+                    }
+                }
+            }
+        },
+        "/post/:id": {
+            "get": {
+                "summary": "Get a single post by Id",
+                "description": "Returns a Json object containing post data.",
+                "responses": {
+                    "200": {
+                        "description": "A list of Person",
+                        "schema": {
+                            "id": "string",
+                            "userId": "string",
+                            "iconUrl": "string",
+                            "title": "string",
+                            "username": "string",
+                            "rating": "number",
+                            "distance": "number",
+                            "description": "string"
+                        }
+                    }
+                }
+            }
+        },
+        "/post": {
+            "post": {
+                "summary": "Creates a post",
+                "description": "Returns a Json object containing post data.",
+                "responses": {
+                    "201": {
+                        "description": "A list of Person",
+                        "schema": {
+                            "id": "string",
+                            "userId": "string",
+                            "iconUrl": "string",
+                            "title": "string",
+                            "username": "string",
+                            "rating": "number",
+                            "distance": "number",
+                            "description": "string"
+                        }
+                    }
+                }
+            },
+            "put": {
+                "summary": "Update a single post",
+                "description": "Returns a Json object containing updated post data.",
+                "responses": {
+                    "200": {
+                        "description": "A list of Person",
+                        "schema": {
+                            "id": "string",
+                            "userId": "string",
+                            "iconUrl": "string",
+                            "title": "string",
+                            "username": "string",
+                            "rating": "number",
+                            "distance": "number",
+                            "description": "string"
                         }
                     }
                 }
