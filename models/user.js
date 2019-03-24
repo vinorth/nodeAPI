@@ -6,7 +6,8 @@ const UserSchema = new Schema({
     firstName: String,
     lastName: String,
     username: String,
-    posts: [String]
+    posts: [String],
+    archived: Boolean
 });
 
 module.exports = mongoose.model('User', UserSchema);

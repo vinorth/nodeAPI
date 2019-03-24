@@ -9,7 +9,8 @@ const PostSchema = new Schema({
     iconUrl: String,
     username: String,
     rating: Number,
-    distance: Number
+    distance: Number,
+    archived: Boolean
 });
 
 module.exports = mongoose.model('Post', PostSchema);
