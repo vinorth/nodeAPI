@@ -5,7 +5,7 @@ module.exports = {
   createPost(req, res, next) {
     var post = new PostModel(req.body);
 
-    user.save(function (err) {
+    post.save(function (err) {
       if (err) {
         next(err);
       } else {
@@ -42,6 +42,16 @@ module.exports = {
         res.json(posts);
       }
     });
+  },
+
+  deletePost(req, res, next) {
+    PostModel.deleteOne({ id: req.body.id }, (err) => {
+      if (err) {
+        next(err);
+      } else {
+        res.status(204);
+      }
+    })
   }
 
 }

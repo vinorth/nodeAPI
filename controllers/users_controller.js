@@ -42,6 +42,16 @@ module.exports = {
         res.json(users);
       }
     });
+  },
+
+  deleteUser(req, res, next) {
+    UserModel.deleteOne({ id: req.body.id }, (err) => {
+      if (err) {
+        next(err);
+      } else {
+        res.json(req);
+      }
+    })
   }
 
 }

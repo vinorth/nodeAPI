@@ -4,12 +4,12 @@ const Schema = mongoose.Schema;
 const PostSchema = new Schema({
     id: String,
     userId: String,
-    iconUrl: String,
     title: String,
+    description: String,
+    iconUrl: String,
     username: String,
     rating: Number,
-    distance: Number,
-    description: String
+    distance: Number
 });
 
 module.exports = mongoose.model('Post', PostSchema);

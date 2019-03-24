@@ -15,9 +15,11 @@ module.exports = function (app) {
      .put('/user', UserCtrl.updateUser)
      .get('/users', UserCtrl.getAllUsers)
      .get('/user/:id', UserCtrl.getUserById)
+     .delete('/user', UserCtrl.deleteUser)
 
      .post('/post', PostCtrl.createPost)
      .put('/post', PostCtrl.updatePost)
      .get('/posts', PostCtrl.getAllPosts)
      .get('/post/:id', PostCtrl.getPostById)
+     .delete('/post', PostCtrl.deletePost)
 };
