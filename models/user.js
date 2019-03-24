@@ -8,6 +8,6 @@ const UserSchema = new Schema({
     username: String,
     posts: [String],
     archived: Boolean
-});
+}, { _id: false});
 
 module.exports = mongoose.model('User', UserSchema);
