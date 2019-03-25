@@ -1,7 +1,8 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
-const PostSchema = new Schema({
+const ListingSchema = new Schema({
+    // _id: false,
     id: String,
     userId: String,
     title: String,
@@ -11,6 +12,6 @@ const PostSchema = new Schema({
     rating: Number,
     distance: Number,
     archived: Boolean
-}, { _id: false });
+});
 
-module.exports = mongoose.model('Post', PostSchema);
+module.exports = mongoose.model('Listing', ListingSchema);
