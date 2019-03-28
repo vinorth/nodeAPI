@@ -1,6 +1,6 @@
 const ValuesCtrl = require('../controllers/values_controller');
 const UserCtrl = require('../controllers/users_controller');
-const PostCtrl = require('../controllers/posts_controller')
+const ListingCtrl = require('../controllers/listings_controller')
 
 module.exports = function (app) {
     app
@@ -17,9 +17,9 @@ module.exports = function (app) {
      .get('/user/:id', UserCtrl.getUserById)
      .delete('/user', UserCtrl.deleteUser)
 
-     .post('/post', PostCtrl.createPost)
-     .put('/post', PostCtrl.updatePost)
-     .get('/posts', PostCtrl.getAllPosts)
-     .get('/post/:id', PostCtrl.getPostById)
-     .delete('/post', PostCtrl.deletePost)
+     .post('/listing', ListingCtrl.createListing)
+     .put('/listing', ListingCtrl.updateListing)
+     .get('/listings', ListingCtrl.getAllListings)
+     .get('/listing/:id', ListingCtrl.getListingById)
+     .delete('/listing', ListingCtrl.deleteListing)
 };
