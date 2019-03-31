@@ -44,14 +44,15 @@ module.exports = {
     });
   },
 
-  deleteUser(req, res, next) {
-    UserModel.deleteOne({ id: req.body.id }, (err) => {
+  archiveUser(req, res, next) {
+    UserModel.findOne({ id: req.params.id }, (err, user) => {
       if (err) {
         next(err);
       } else {
-        res.json(req);
+        user.archived = true;
+        user.save();
       }
-    })
+    });
   }
 
 }

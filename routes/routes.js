@@ -14,12 +14,12 @@ module.exports = function (app) {
      .post('/user', UserCtrl.createUser)
      .put('/user', UserCtrl.updateUser)
      .get('/users', UserCtrl.getAllUsers)
+     .put('/archive/user/:id', UserCtrl.archiveUser)
      .get('/user/:id', UserCtrl.getUserById)
-     .delete('/user', UserCtrl.deleteUser)
 
      .post('/listing', ListingCtrl.createListing)
      .put('/listing', ListingCtrl.updateListing)
      .get('/listings', ListingCtrl.getAllListings)
+     .put('/archive/listing/:id', ListingCtrl.archiveListing)
      .get('/listing/:id', ListingCtrl.getListingById)
-     .delete('/listing', ListingCtrl.deleteListing)
 };

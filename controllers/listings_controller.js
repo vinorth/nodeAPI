@@ -44,14 +44,15 @@ module.exports = {
     });
   },
 
-  deleteListing(req, res, next) {
-    ListingModel.deleteOne({ id: req.body.id }, (err) => {
+  archiveListing(req, res, next) {
+    ListingModel.findOne({ id: req.params.id }, (err, listing) => {
       if (err) {
         next(err);
       } else {
-        res.status(204);
+        listing.archived = true;
+        listing.save();
       }
-    })
+    });
   }
 
 }
