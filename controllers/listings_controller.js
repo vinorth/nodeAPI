@@ -35,7 +35,7 @@ module.exports = {
   },
 
   getAllListings(req, res, next) {
-    ListingModel.find(function (err, listings) {
+    ListingModel.find({ archived: false }, function (err, listings) {
       if (err) {
         next(err);
       } else {
