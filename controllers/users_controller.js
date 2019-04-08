@@ -35,7 +35,7 @@ module.exports = {
   },
 
   getAllUsers(req, res, next) {
-    UserModel.find(function (err, users) {
+    UserModel.find({ archived: { $ne: true } }, function (err, users) {
       if (err) {
         next(err);
       } else {
