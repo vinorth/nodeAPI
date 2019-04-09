@@ -1,9 +1,11 @@
 const ListingModel = require('../models/listing');
+const helper = require('../helper');
 
 module.exports = {
 
   createListing(req, res, next) {
     var listing = new ListingModel(req.body);
+    listing.id = helper.createGuidId();
 
     listing.save(function (err) {
       if (err) {

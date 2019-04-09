@@ -1,9 +1,11 @@
 const UserModel = require('../models/user');
+const helper = require('../helper');
 
 module.exports = {
 
   createUser(req, res, next) {
     var user = new UserModel(req.body);
+    user.id = helper.createGuidId();
 
     user.save(function (err) {
       if (err) {
