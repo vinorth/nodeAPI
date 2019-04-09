@@ -41,6 +41,18 @@ module.exports = {
       if (err) {
         next(err);
       } else {
+        listings = listings.map(listing => ({ 
+          id: listing._id,
+          userId: listing.userId,
+          title: listing.title,
+          description: listing.description,
+          iconUrl: listing.iconUrl,
+          username: listing.username,
+          rating: listing.rating,
+          distance: listing.distance,
+          archived: listing.archived
+         }))
+
         res.json(listings);
       }
     });
