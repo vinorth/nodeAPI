@@ -1,12 +1,9 @@
 const ListingModel = require('../models/listing');
-const helper = require('../helper');
 
 module.exports = {
 
   createListing(req, res, next) {
     var listing = new ListingModel(req.body);
-    listing.id = helper.createGuidId();
-
     listing.save(function (err) {
       if (err) {
         next(err);
@@ -17,7 +14,7 @@ module.exports = {
   },
     
   updateListing(req, res, next) {
-    ListingModel.findOneAndUpdate({ id: req.body.id }, req.body, {new: true}, (err, listing) => {
+    ListingModel.findOneAndUpdate({ _id: req.body.id }, req.body, {new: true}, (err, listing) => {
       if (err) {
         next(err);
       } else {
@@ -27,10 +24,21 @@ module.exports = {
   },
     
   getListingById(req, res, next) {
-    ListingModel.findOne({ id: req.params.id }, (err, listing) => {
+    ListingModel.findOne({ _id: req.params.id }, (err, listing) => {
       if (err) {
         next(err);
       } else {
+        listing = {
+          id: listing._id,
+          userId: listing.userId,
+          title: listing.title,
+          description: listing.description,
+          iconUrl: listing.iconUrl,
+          username: listing.username,
+          rating: listing.rating,
+          distance: listing.distance
+        }
+
         res.json(listing)
       }
     });
@@ -49,8 +57,7 @@ module.exports = {
           iconUrl: listing.iconUrl,
           username: listing.username,
           rating: listing.rating,
-          distance: listing.distance,
-          archived: listing.archived
+          distance: listing.distance
          }))
 
         res.json(listings);
@@ -59,7 +66,7 @@ module.exports = {
   },
 
   archiveListing(req, res, next) {
-    ListingModel.findOne({ id: req.params.id }, (err, listing) => {
+    ListingModel.findOne({ _id: req.params.id }, (err, listing) => {
       if (err) {
         next(err);
       } else {
