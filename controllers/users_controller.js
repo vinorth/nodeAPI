@@ -1,9 +1,11 @@
 const UserModel = require('../models/user');
+const helper = require('../helper');
 
 module.exports = {
 
   createUser(req, res, next) {
     var user = new UserModel(req.body);
+    user.id = helper.createGuidId();
 
     user.save(function (err) {
       if (err) {
@@ -35,7 +37,7 @@ module.exports = {
   },
 
   getAllUsers(req, res, next) {
-    UserModel.find(function (err, users) {
+    UserModel.find({ archived: { $ne: true } }, function (err, users) {
       if (err) {
         next(err);
       } else {
@@ -44,14 +46,15 @@ module.exports = {
     });
   },
 
-  deleteUser(req, res, next) {
-    UserModel.deleteOne({ id: req.body.id }, (err) => {
+  archiveUser(req, res, next) {
+    UserModel.findOne({ id: req.params.id }, (err, user) => {
       if (err) {
         next(err);
       } else {
-        res.json(req);
+        user.archived = true;
+        user.save();
       }
-    })
+    });
   }
 
 }
