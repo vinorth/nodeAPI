@@ -4,7 +4,8 @@
   "description": "JavaScript REST API using the Node",
   "main": "server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
   },
   "repository": {
     "type": "git",
@@ -23,6 +24,7 @@
     "cors": "^2.8.5",
     "express": "^4.16.4",
     "mongoose": "^5.4.3",
+    "passport-oauth2": "^1.5.0",
     "swagger-ui-express": "^4.0.2"
   },
   "devDependencies": {
