@@ -9,6 +9,7 @@ const ListingSchema = new Schema({
     username: String,
     rating: Number,
     distance: Number,
+    date: Date,
     archived: Boolean
 });
 
