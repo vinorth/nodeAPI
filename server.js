@@ -11,7 +11,7 @@ const app = express();
 app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
 // app.use('/api/v1', router);
 
-const port = process.env.PORT || 8080;
+const port = process.env.PORT || 80;
 mongoose.connect('mongodb+srv://dev:TDUa31Zf4KXHnPfM@cluster0-katnu.mongodb.net/t6-test?retryWrites=true&w=majority', { useNewUrlParser: true });
 
 app.use(cors());
