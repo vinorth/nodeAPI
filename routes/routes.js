@@ -11,15 +11,15 @@ module.exports = function (app) {
      .put('/test', ValuesCtrl.updateValue)
      .delete('/test/:id', ValuesCtrl.deleteValue)
 
+     .get('/users', UserCtrl.getAllUsers)
      .post('/user', UserCtrl.createUser)
      .put('/user', UserCtrl.updateUser)
-     .get('/users', UserCtrl.getAllUsers)
-     .put('/archive/user/:id', UserCtrl.archiveUser)
      .get('/user/:id', UserCtrl.getUserById)
+     .delete('/user/:id', UserCtrl.archiveUser)
 
+     .get('/listings', ListingCtrl.getAllListings)
      .post('/listing', ListingCtrl.createListing)
      .put('/listing', ListingCtrl.updateListing)
-     .get('/listings', ListingCtrl.getAllListings)
-     .put('/archive/listing/:id', ListingCtrl.archiveListing)
      .get('/listing/:id', ListingCtrl.getListingById)
+     .delete('/listing/:id', ListingCtrl.archiveListing)
 };
